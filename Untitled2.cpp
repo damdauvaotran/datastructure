@@ -1,21 +1,44 @@
 #include <iostream>
 using namespace std;
-void makeLine(int , int , int , int , int  []);
+struct Point {
+    int x;
+    int y;
+    Point(int x, int y) {
+        this->x = x;
+        this->y = y;
+    }
+};
+
+void makeLine(Point pointA , Point pointB, int line[]);
+
+
 
 int main() {
-    int x1, y1, x2, y2, x3, y3;
-    cin>>x1>>y1>>x2>>y2>>x3>>y3;
+    int x1, y1, x2, y2, x3, y3, x4, y4;
+    cin>>x1>>y1>>x2>>y2>>x3>>y3>>x4>>y4;
     int line1[3] = {0};
     int line2[3] = {0};
-    makeLine(x1,y1,x2,y2,line1);
+
+    Point a =  Point(x1,y1);
+    Point b =  Point(x2,y2);
+    Point c =  Point(x3,y3);
+    Point d =  Point(x4,y4);
+
+    makeLine(a,b,line1);
+    makeLine(c,d, line2);
     for (int i=0; i< 3; i++) {
         cout<<line1[i]<< " ";
     }
     return 0;
 }
 
-void makeLine(int x1, int y1, int x2, int y2, int line[]) {
-    line[0] = y1-y2;
-    line[1] = x2-x1;
-    line [2] = line[0]* (-x1)+ line[1]*(-y1);
+void makeLine(Point pointA , Point pointB, int line[]) {
+    line[0] = pointA.y- pointB.y;
+    line[1] = pointB.x-pointA.x;
+    line [2] = line[0]* (-pointA.x)+ line[1]*(-pointA.y);
 }
+
+int checkDirection(int line[], int ){
+
+}
+
