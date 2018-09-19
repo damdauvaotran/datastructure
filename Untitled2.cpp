@@ -10,7 +10,7 @@ struct Point {
 };
 
 void makeLine(Point pointA , Point pointB, int line[]);
-
+int checkDirection(int line[3], Point point );
 
 
 int main() {
@@ -29,6 +29,7 @@ int main() {
     for (int i=0; i< 3; i++) {
         cout<<line1[i]<< " ";
     }
+
     return 0;
 }
 
@@ -38,7 +39,14 @@ void makeLine(Point pointA , Point pointB, int line[]) {
     line [2] = line[0]* (-pointA.x)+ line[1]*(-pointA.y);
 }
 
-int checkDirection(int line[], int ){
-
+int checkDirection(int line[3], Point point ){
+    double result = line[0]*point.x+ line[1]*point.y+ line[2];
+    if (result==0){
+        return 0;
+    }
+    if (result >0){
+        return 1;
+    }
+    return -1;
 }
 
