@@ -85,14 +85,17 @@ public class Heap {
         if (length < 1) {
             System.out.println("Heap empty");
         } else {
-
             heap[0] = heap[length - 1];
+            /*
+             * Create new array with length := length-1 and copy
+             */
             length--;
             int[] newHeap = new int[length];
             for (int i = 0; i < length - 1; i++) {
                 newHeap[i] = heap[i];
             }
             this.heap = newHeap;
+
 
             maxHeapify(heap, 0, length);
         }
